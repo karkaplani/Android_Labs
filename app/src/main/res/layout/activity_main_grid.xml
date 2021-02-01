@@ -18,10 +18,11 @@
             android:layout_columnSpan="2" />
 
         <Button
+            android:id="@+id/myButton"
             android:text="@string/ButtonText"
             android:layout_row="1"
             android:layout_column="0"
-            android:layout_width="230dp"
+            android:layout_width="220dp"
             android:textAlignment="center"
             android:layout_height="wrap_content"
             android:gravity="fill"
@@ -31,9 +32,8 @@
             android:text="@string/CheckBox"
             android:layout_row="1"
             android:layout_column="1"
-            android:layout_width="130dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:gravity="fill"
             />
 
         <ImageButton
