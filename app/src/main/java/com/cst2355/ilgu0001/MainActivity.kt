@@ -10,12 +10,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.cst2355.ilgu0001.R.layout.activity_main_linear
 import com.google.android.material.snackbar.Snackbar
-import com.cst2355.ilgu0001.R.layout.activity_main_grid as activity_main_grid
+import com.cst2355.ilgu0001.R.layout.activity_main_relative as activity_main_relative
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activity_main_grid)
+        setContentView(activity_main_relative)
 
         val myButton: Button = findViewById<Button>(R.id.myButton)
         val mySwitch : Switch = findViewById<Switch>(R.id.mySwitch)
