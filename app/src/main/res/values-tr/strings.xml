@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Android_Labs</string>
-    <string name="hello_message">Selam Dünya!</string>
-    <string name="ButtonText">Ben bir butonum</string>
+    <string name="FirstText">GUIME BAK</string>
+    <string name="app_name">Android_Labs2</string>
+    <string name="ButtonText">BURAYA DOKUN</string>
+    <string name="CheckBox">Bunu işaretle!</string>
+    <string name="SwitchText">Düğme aç/kapa</string>
+    <string name="hello_message">Selam Dunya</string>
+    <string name="TextHint">Buraya yaz</string>
+    <string name="ToastText">Daha fazla bilgi</string>
+    <string name="SnackText">Düğme şimdi </string>
+    <string name="SwitchOn">açık</string>
+    <string name="SwitchOff">kapalı</string>
 </resources>

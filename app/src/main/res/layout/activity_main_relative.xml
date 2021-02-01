@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/myText"
+            android:layout_alignParentStart="true"
+            android:text="@string/FirstText"
+            android:textSize="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/myButton"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myText"
+            android:text="@string/ButtonText"/>
+
+        <CheckBox
+            android:id="@+id/myCheckBox"
+            android:text="@string/CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myText"
+            android:layout_toRightOf="@+id/myButton"/>
+
+        <ImageButton
+            android:id="@+id/myFlag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/myButton"
+            android:src="@drawable/flag" />
+
+        <Switch
+            android:id="@+id/mySwitch"
+            android:text="@string/SwitchText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myCheckBox"
+            android:layout_toRightOf="@id/myFlag"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/TextHint"
+            android:layout_below="@id/myFlag"/>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
