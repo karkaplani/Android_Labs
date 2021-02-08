@@ -11,4 +11,7 @@
     <string name="SnackText">Düğme şimdi </string>
     <string name="SwitchOn">açık</string>
     <string name="SwitchOff">kapalı</string>
+
+    <string name="FunctionMessage">burada: </string>
+
 </resources>

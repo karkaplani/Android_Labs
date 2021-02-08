@@ -14,7 +14,7 @@ class LoginActivity : AppCompatActivity() {
     //Shared preference variables
     private val sharedPrefs = "sharedPrefs"
     private val emailP = "email"
-    //Elements
+
     private var emailText: EditText? = null
     private var loginButton: Button? = null
     private var email: String? = null //Email gotten

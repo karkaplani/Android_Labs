@@ -10,4 +10,6 @@
     <string name="SnackText">Switch is now</string>
     <string name="SwitchOn">on</string>
     <string name="SwitchOff">off</string>
+
+    <string name="FunctionMessage">in function: </string>
 </resources>

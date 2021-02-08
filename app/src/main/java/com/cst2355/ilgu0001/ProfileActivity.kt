@@ -21,11 +21,15 @@ class ProfileActivity : AppCompatActivity() {
     val REQUEST_IMAGE_CAPTURE = 1
     val ACTIVITY_NAME = "PROFILE_ACTIVITY"
 
+    private var functionMessage: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        Log.e(ACTIVITY_NAME, " in function: " + "onCreate")
+        functionMessage = getString(R.string.FunctionMessage)
+
+        Log.e(ACTIVITY_NAME, functionMessage + "onCreate")
 
         nameText = findViewById(R.id.NameText)
         emailText = findViewById(R.id.MailText)
@@ -49,6 +53,31 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.e(ACTIVITY_NAME, functionMessage + "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.e(ACTIVITY_NAME, functionMessage + "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.e(ACTIVITY_NAME, functionMessage + "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.e(ACTIVITY_NAME, functionMessage + "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e(ACTIVITY_NAME, functionMessage + "onDestroy")
+    }
+
     @Override
     protected fun onActivityResultt(requestCode: Int, resultCode: Int, data: Intent) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
@@ -56,30 +85,5 @@ class ProfileActivity : AppCompatActivity() {
             val imageBitmap = extras!!["data"] as Bitmap?
             mImageButton?.setImageBitmap(imageBitmap)
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.e(ACTIVITY_NAME, " in function: " + "onStart")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.e(ACTIVITY_NAME, " in function: " + "onStop")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.e(ACTIVITY_NAME, " in function: " + "onDestroy")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.e(ACTIVITY_NAME, " in function: " + "onPause")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.e(ACTIVITY_NAME, " in function: " + "onResume")
     }
 }
