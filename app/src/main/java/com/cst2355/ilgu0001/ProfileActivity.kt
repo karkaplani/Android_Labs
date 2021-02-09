@@ -78,10 +78,10 @@ class ProfileActivity : AppCompatActivity() {
         Log.e(ACTIVITY_NAME, functionMessage + "onDestroy")
     }
 
-    @Override
-    protected fun onActivityResultt(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            val extras = data.extras
+            val extras = data!!.extras
             val imageBitmap = extras!!["data"] as Bitmap?
             mImageButton?.setImageBitmap(imageBitmap)
         }

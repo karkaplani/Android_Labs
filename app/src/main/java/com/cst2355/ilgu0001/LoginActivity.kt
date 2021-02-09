@@ -15,8 +15,8 @@ class LoginActivity : AppCompatActivity() {
     private val sharedPrefs = "sharedPrefs"
     private val emailP = "email"
 
-    private var emailText: EditText? = null
-    private var loginButton: Button? = null
+    private lateinit var emailText: EditText
+    private lateinit var loginButton: Button
     private var email: String? = null //Email gotten
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,13 +26,15 @@ class LoginActivity : AppCompatActivity() {
 
         loginButton = findViewById(R.id.LoginButton)
         val localLoginButton = this.loginButton
+        emailText = findViewById<EditText>(R.id.EmailText)
 
         val prefs = getSharedPreferences(sharedPrefs, Context.MODE_PRIVATE)
         email = prefs.getString(emailP, "")
+        emailText?.setText(email)
 
         localLoginButton?.setOnClickListener {
             val goToProfile = Intent(this@LoginActivity, ProfileActivity::class.java)
-            goToProfile.putExtra("email", emailText?.text.toString())
+            goToProfile.putExtra("EMAIL", emailText?.text.toString())
             startActivity(goToProfile)
         }
     }
