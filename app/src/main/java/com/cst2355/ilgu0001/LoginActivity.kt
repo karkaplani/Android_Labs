@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(activity_login)
 
         loginButton = findViewById(R.id.LoginButton)
+
         val localLoginButton = this.loginButton
         emailText = findViewById<EditText>(R.id.EmailText)
 

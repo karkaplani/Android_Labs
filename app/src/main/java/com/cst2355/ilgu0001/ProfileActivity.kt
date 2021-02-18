@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +44,13 @@ class ProfileActivity : AppCompatActivity() {
 
         localMImageButton?.setOnClickListener {
             dispatchTakePictureIntent()
+        }
+
+        val chatButton: Button = findViewById(R.id.ChatButton)
+
+        chatButton?.setOnClickListener{
+            val goToChat = Intent(this@ProfileActivity, ChatRoomActivity::class.java)
+            startActivity(goToChat)
         }
     }
 

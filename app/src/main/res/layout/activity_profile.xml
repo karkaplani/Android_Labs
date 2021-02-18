@@ -66,6 +66,13 @@
             android:textSize="15dp"
             android:text="Click the button above to take a picture"/>
 
+        <Button
+            android:id="@+id/ChatButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go to chat"
+            />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
