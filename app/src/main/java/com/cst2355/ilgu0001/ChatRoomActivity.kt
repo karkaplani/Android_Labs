@@ -110,14 +110,11 @@ class ChatRoomActivity : AppCompatActivity() {
             Log.e("Number of columns: ", cursor.columnCount.toString())
             Log.e("Column names: ", columnNames.toString())
             Log.e("Number of rows: ", cursor.count.toString())
-val msgIndex = cursor.getColumnIndex(DatabaseControl.COL_MESSAGE);
+            val msgIndex = cursor.getColumnIndex(DatabaseControl.COL_MESSAGE);
             cursor.moveToFirst()
             while (!cursor.isAfterLast) {
 
-
-
                     Log.e("ChatRoomActivity", "|    " + cursor.getString(msgIndex))
-
                 cursor.moveToNext()
             }
         }

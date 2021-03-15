@@ -47,10 +47,16 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         val chatButton: Button = findViewById(R.id.ChatButton)
+        val weatherButton: Button = findViewById(R.id.WeatherButton)
 
         chatButton?.setOnClickListener{
             val goToChat = Intent(this@ProfileActivity, ChatRoomActivity::class.java)
             startActivity(goToChat)
+        }
+
+        weatherButton?.setOnClickListener{
+            val goToForecast = Intent(this@ProfileActivity, WeatherForecast::class.java)
+            startActivity(goToForecast)
         }
     }
 
