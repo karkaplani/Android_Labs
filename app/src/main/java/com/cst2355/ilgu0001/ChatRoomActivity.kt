@@ -2,6 +2,7 @@ package com.cst2355.ilgu0001
 
 import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -10,6 +11,7 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import android.widget.AdapterView.OnItemClickListener
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -19,11 +21,21 @@ class ChatRoomActivity : AppCompatActivity() {
     private  val listAdapter = MyListAdapter()
     private lateinit var database: SQLiteDatabase
 
+    companion object {
+        val MESSAGE = "ITEM"
+        val ITEM_POSITION = "POSITION"
+        val ITEM_ID = "ID"
+        val SEND_REC = "SEND"
+    }
+
+    var companion = Companion
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_room)
 
+        val isTablet = findViewById<View?>(R.id.fragment) != null
         loadData()
 
         val listView= findViewById<ListView>(R.id.myList)
@@ -81,11 +93,33 @@ class ChatRoomActivity : AppCompatActivity() {
             listAdapter.notifyDataSetChanged()
             editText.text.clear()
         }
+
+        listView.onItemClickListener =
+            OnItemClickListener { _: AdapterView<*>?, _: View?, position: Int, id: Long ->
+
+                val dataToPass = Bundle()
+                dataToPass.putString(MESSAGE, messages[position].msg)
+                dataToPass.putInt(ITEM_POSITION, position)
+                dataToPass.putLong(ITEM_ID, id)
+                dataToPass.putInt(SEND_REC, messages[position].isSend)
+                if (isTablet) {
+                    val fragment = DetailsFragment()
+                    fragment.arguments = dataToPass
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment, fragment)
+                        .commit()
+                } else {
+                    val nextActivity = Intent(this@ChatRoomActivity, EmptyActivity::class.java)
+                    nextActivity.putExtras(dataToPass)
+                    startActivity(nextActivity)
+                }
+            }
     }
 
     private fun loadData() {
         val dbManager = DatabaseControl(this)
-         database = dbManager.writableDatabase
+        database = dbManager.writableDatabase
         val columns = arrayOf<String>(DatabaseControl.COL_ID, DatabaseControl.COL_MESSAGE, DatabaseControl.COL_SEND)
 
         val results: Cursor = database.query(false, dbManager.companion.TABLE_NAME, columns, null, null, null, null, null, null)
@@ -114,7 +148,7 @@ class ChatRoomActivity : AppCompatActivity() {
             cursor.moveToFirst()
             while (!cursor.isAfterLast) {
 
-                    Log.e("ChatRoomActivity", "|    " + cursor.getString(msgIndex))
+                Log.e("ChatRoomActivity", "|    " + cursor.getString(msgIndex))
                 cursor.moveToNext()
             }
         }
