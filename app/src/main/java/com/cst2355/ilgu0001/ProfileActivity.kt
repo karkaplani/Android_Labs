@@ -6,7 +6,6 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -20,6 +19,8 @@ class ProfileActivity : AppCompatActivity() {
     private var mImageButton: ImageButton? = null
 
     val REQUEST_IMAGE_CAPTURE = 1
+    val REQUEST_RETURN_TO_LOGIN = 2
+    val RESPONSE_RETURN_TO_LOGIN = 500
     val ACTIVITY_NAME = "PROFILE_ACTIVITY"
 
     private var functionMessage: String? = null
@@ -48,6 +49,7 @@ class ProfileActivity : AppCompatActivity() {
 
         val chatButton: Button = findViewById(R.id.ChatButton)
         val weatherButton: Button = findViewById(R.id.WeatherButton)
+        val toolbarButton: Button = findViewById(R.id.ToolbarButton)
 
         chatButton?.setOnClickListener{
             val goToChat = Intent(this@ProfileActivity, ChatRoomActivity::class.java)
@@ -56,11 +58,17 @@ class ProfileActivity : AppCompatActivity() {
 
         weatherButton?.setOnClickListener{
             val goToForecast = Intent(this@ProfileActivity, WeatherForecast::class.java)
-            startActivity(goToForecast)
+            startActivityForResult(goToForecast, REQUEST_RETURN_TO_LOGIN)
+        }
+
+        toolbarButton?.setOnClickListener{
+            val goToolbar = Intent(this@ProfileActivity, TestToolbar::class.java)
+            startActivity(goToolbar)
         }
     }
 
     private fun dispatchTakePictureIntent() {
+        Log.e(ACTIVITY_NAME, "In dispatchTakePictureIntent")
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         if (takePictureIntent.resolveActivity(packageManager) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
@@ -98,6 +106,10 @@ class ProfileActivity : AppCompatActivity() {
             val extras = data!!.extras
             val imageBitmap = extras!!["data"] as Bitmap?
             mImageButton?.setImageBitmap(imageBitmap)
+        }
+        if(requestCode == REQUEST_RETURN_TO_LOGIN && resultCode == RESPONSE_RETURN_TO_LOGIN) {
+            Log.e(ACTIVITY_NAME, "Returning to the login page.. ");
+            finish();  //return to the login page.
         }
     }
 }

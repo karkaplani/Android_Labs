@@ -80,6 +80,13 @@
             android:text="Go to weather forecast"
             />
 
+        <Button
+            android:id="@+id/ToolbarButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go to Toolbar page"
+            />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
