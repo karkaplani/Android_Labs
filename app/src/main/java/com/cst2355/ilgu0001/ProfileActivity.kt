@@ -12,7 +12,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 
-class ProfileActivity : AppCompatActivity() { //sjkdfsj
+class ProfileActivity : AppCompatActivity() { //eskfdfkls
 
     private var nameText: EditText? = null
     private var emailText: EditText? = null
