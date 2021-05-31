@@ -17,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var emailText: EditText
     private lateinit var loginButton: Button
+    private lateinit var practiceButton: Button
     private var email: String? = null //Email gotten
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(activity_login)
 
         loginButton = findViewById(R.id.LoginButton)
+        practiceButton = findViewById(R.id.practiceButton)
 
         val localLoginButton = this.loginButton
         emailText = findViewById<EditText>(R.id.EmailText)
@@ -37,6 +39,11 @@ class LoginActivity : AppCompatActivity() {
             val goToProfile = Intent(this@LoginActivity, ProfileActivity::class.java)
             goToProfile.putExtra("EMAIL", emailText?.text.toString())
             startActivity(goToProfile)
+        }
+
+        practiceButton?.setOnClickListener {
+            val goToPractice = Intent(this@LoginActivity, PracticeActivity::class.java)
+            startActivity(goToPractice)
         }
     }
 
