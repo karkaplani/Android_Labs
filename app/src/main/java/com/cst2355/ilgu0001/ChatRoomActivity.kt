@@ -15,7 +15,7 @@ import android.widget.AdapterView.OnItemClickListener
 import androidx.appcompat.app.AppCompatActivity
 
 
-class ChatRoomActivity : AppCompatActivity() { //pkjlkjl
+class ChatRoomActivity : AppCompatActivity() { //pkjlkjllskdfjsdkljf
 
 
     private val messages: ArrayList<Messages> = ArrayList()
